@@ -1,22 +1,28 @@
-CC		=	clang
+CC		=	cc
 CFLAGS	=	-Wall -Werror -Wextra
 CLIB	=	-Lmlx -lmlx -framework OpenGL -framework Appkit -Imlx
 LIB_DIR = ./libft
 NAME = fractol
 SRCS = fractol.c draw.c mymlx.c utils.c
+OBJS = fractol.o draw.o mymlx.o utils.o
+INCLUDE = fractol.h
 
-$(NAME):
-	make all
+all: $(NAME)
 
-all: $(SRCS)
+%.o: %.c 
+	$(CC) $(CFLAGS) -Imlx -c $< -o $@ 
+
+$(NAME): $(OBJS)
 	$(CC) $(CFLAGS) $(CLIB) $(SRCS) -o $(NAME) -L$(LIB_DIR) -lft -lftprintf
-	install_name_tool -change libmlx.dylib mlx/libmlx.dylib $(NAME)
 
-fclean:
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
 	rm -f $(NAME)
 
 re:
 	make fclean
 	make all
 
-.PHONY: all, fclean, re
+.PHONY: all, clean, fclean, re

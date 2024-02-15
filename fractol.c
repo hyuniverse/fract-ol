@@ -6,7 +6,7 @@
 /*   By: sehyupar <sehyupar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 22:01:03 by sehyupar          #+#    #+#             */
-/*   Updated: 2024/02/15 20:23:36 by sehyupar         ###   ########.fr       */
+/*   Updated: 2024/02/15 21:18:33 by sehyupar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ int	main(int argc, char **argv)
 	is_valid(argv[2]) && is_valid(argv[3]))
 	{
 		f.type = 2;
-		f.julia.real = atof(argv[2]);
-		f.julia.imag = atof(argv[3]);
+		f.julia.real = (long double)atof(argv[2]);
+		f.julia.imag = (long double)atof(argv[3]);
 		render(f);
 	}
 	else

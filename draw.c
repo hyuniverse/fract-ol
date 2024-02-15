@@ -6,12 +6,11 @@
 /*   By: sehyupar <sehyupar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:21:29 by sehyupar          #+#    #+#             */
-/*   Updated: 2024/02/15 20:22:36 by sehyupar         ###   ########.fr       */
+/*   Updated: 2024/02/15 20:46:46 by sehyupar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include <stdio.h>
 
 static int	calc_madelbrot(int x, int y, t_fractol f)
 {
