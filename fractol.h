@@ -6,7 +6,7 @@
 /*   By: sehyupar <sehyupar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:59:15 by sehyupar          #+#    #+#             */
-/*   Updated: 2024/02/08 21:58:34 by sehyupar         ###   ########.fr       */
+/*   Updated: 2024/02/15 19:25:26 by sehyupar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,15 @@
 # include <mlx.h>
 
 # define ESC 53
-# define SCROLL_UP 4
-# define SCROLL_DOWN 5
-# define WIDTH 1000
-# define HEIGHT 1000
+# define SCROLL_UP 5
+# define SCROLL_DOWN 4
+# define WIDTH 800
+# define HEIGHT 800
 
 typedef struct s_complex
 {
-	double	real;
-	double	imag;
+	long double	real;
+	long double	imag;
 }	t_complex;
 
 typedef struct s_fractol
@@ -37,11 +37,15 @@ typedef struct s_fractol
 	void		*win;
 	int			type;
 	t_complex	julia;
-	int			x;
-	int			y;
-	double		zoom;
-	double		min_x;
-	double		min_y;
+	int			px;
+	int			py;
+	int			ppx;
+	int			ppy;
+	long double	cx;
+	long double	cy;
+	long double	pcx;
+	long double	pcy;
+	long double	zoom;
 	void		*img;
 	char		*addr;
 	int			bits_per_pixel;
@@ -53,9 +57,10 @@ void	my_mlx_pixel_put(t_fractol	*f, int x, int y, int color);
 int		exit_hook(void);
 int		key_hook(int keycode, t_fractol *f);
 void	initialize(t_fractol *f);
-void	main_mandelbrot(void);
-void	main_julia(double real, double imag);
-
+void	draw(t_fractol f);
 void	print_man(void);
+int		ft_isdigit(int c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_printf(const char *str, ...);
 
 #endif
