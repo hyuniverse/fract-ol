@@ -6,7 +6,7 @@
 /*   By: sehyupar <sehyupar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 22:01:03 by sehyupar          #+#    #+#             */
-/*   Updated: 2024/02/15 21:18:33 by sehyupar         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:25:14 by sehyupar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	render(t_fractol f)
 	initialize(&f);
 	draw(f);
 	mlx_put_image_to_window(f.mlx, f.win, f.img, 0, 0);
-	mlx_key_hook(f.win, key_hook, &f);
+	mlx_key_hook(f.win, key_hook, 0);
 	mlx_mouse_hook(f.win, mouse_hook, &f);
 	mlx_hook(f.win, 17, 0, exit_hook, 0);
 	mlx_loop(f.mlx);
@@ -69,13 +69,14 @@ int	main(int argc, char **argv)
 {
 	t_fractol	f;
 
-	if (argc == 2 && ft_strncmp(argv[1], "mandel", 6) == 0)
+	if (argc == 2 && ft_strncmp(argv[1], "mandel", 6) == 0 && \
+	ft_strlen(argv[1]) == 6)
 	{
 		f.type = 1;
 		render(f);
 	}
 	else if (argc == 4 && (ft_strncmp(argv[1], "julia", 5) == 0) && \
-	is_valid(argv[2]) && is_valid(argv[3]))
+	ft_strlen(argv[1]) == 5 && is_valid(argv[2]) && is_valid(argv[3]))
 	{
 		f.type = 2;
 		f.julia.real = (long double)atof(argv[2]);

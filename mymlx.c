@@ -6,7 +6,7 @@
 /*   By: sehyupar <sehyupar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 20:54:03 by sehyupar          #+#    #+#             */
-/*   Updated: 2024/02/15 21:18:34 by sehyupar         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:25:36 by sehyupar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,10 @@ void	my_mlx_pixel_put(t_fractol	*f, int x, int y, int color)
 	*(unsigned int *)dst = color;
 }
 
-int	key_hook(int keycode, t_fractol *f)
+int	key_hook(int keycode)
 {
 	if (keycode == ESC)
-	{
-		mlx_destroy_window(f->mlx, f->win);
 		exit(0);
-	}
 	return (0);
 }
 

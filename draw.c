@@ -6,7 +6,7 @@
 /*   By: sehyupar <sehyupar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:21:29 by sehyupar          #+#    #+#             */
-/*   Updated: 2024/02/15 20:46:46 by sehyupar         ###   ########.fr       */
+/*   Updated: 2024/02/20 19:29:57 by sehyupar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ static int	calc_madelbrot(int x, int y, t_fractol f)
 	t_complex	c;
 	t_complex	z;
 
-	c.real = ((x - f.px) / (long double)WIDTH * 4.0) / f.zoom + f.cx;
-	c.imag = (f.py - y) / (long double)HEIGHT * 4.0 / f.zoom + f.cy;
+	c.real = (x - f.px) / (long double)WIDTH * 4 / f.zoom + f.cx;
+	c.imag = (f.py - y) / (long double)HEIGHT * 4 / f.zoom + f.cy;
 	z.real = 0;
 	z.imag = 0;
 	iter = 0;

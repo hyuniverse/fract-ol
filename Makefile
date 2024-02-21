@@ -1,5 +1,5 @@
 CC		=	cc
-CFLAGS	=	-Wall -Werror -Wextra
+CFLAGS	=	-Wall -Werror -Wextra -O3
 CLIB	=	-Lmlx -lmlx -framework OpenGL -framework Appkit -Imlx
 LIB_DIR = ./libft
 NAME = fractol

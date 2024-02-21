@@ -6,7 +6,7 @@
 /*   By: sehyupar <sehyupar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/01 21:59:15 by sehyupar          #+#    #+#             */
-/*   Updated: 2024/02/15 21:02:09 by sehyupar         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:25:35 by sehyupar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,13 @@ typedef struct s_fractol
 
 void	my_mlx_pixel_put(t_fractol	*f, int x, int y, int color);
 int		exit_hook(void);
-int		key_hook(int keycode, t_fractol *f);
+int		key_hook(int keycode);
 void	initialize(t_fractol *f);
 void	draw(t_fractol f);
 void	print_man(void);
 int		ft_isdigit(int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_printf(const char *str, ...);
+size_t	ft_strlen(const char *s);
 
 #endif
